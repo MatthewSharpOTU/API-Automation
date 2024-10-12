@@ -7,23 +7,22 @@ class TestReqResAPI(unittest.TestCase):
     def test_get_single_user(self):
         """Test GET request for a single user"""
         response = requests.get(f"{self.BASE_URL}/api/users/2")
-        print(response.status_code)
-        
         self.assertEqual(response.status_code, 200)
         data = response.json()
         self.assertEqual(data['data']['id'], 2)
+        self.assertEqual(data['data']['email'], "janet.weaver@reqres.in")
 
-    # def test_create_user(self):
-    #     """Test POST request to create a user"""
-    #     payload = {
-    #         "name": "morpheus",
-    #         "job": "leader"
-    #     }
-    #     response = requests.post(f"{self.BASE_URL}/users", json=payload)
-    #     self.assertEqual(response.status_code, 201)
-    #     data = response.json()
-    #     self.assertEqual(data['name'], "morpheus")
-    #     self.assertEqual(data['job'], "leader")
+    def test_create_user(self):
+        """Test POST request to create a user"""
+        payload = {
+            "name": "morpheus",
+            "job": "leader"
+        }
+        response = requests.post(f"{self.BASE_URL}/api/users", json=payload)
+        self.assertEqual(response.status_code, 201)
+        data = response.json()
+        self.assertEqual(data['name'], "morpheus")
+        self.assertEqual(data['job'], "leader")
 
     # def test_update_user(self):
     #     """Test PUT request to update a user"""
