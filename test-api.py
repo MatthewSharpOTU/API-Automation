@@ -24,21 +24,21 @@ class TestReqResAPI(unittest.TestCase):
         self.assertEqual(data['name'], "morpheus")
         self.assertEqual(data['job'], "leader")
 
-    # def test_update_user(self):
-    #     """Test PUT request to update a user"""
-    #     payload = {
-    #         "name": "morpheus",
-    #         "job": "zion resident"
-    #     }
-    #     response = requests.put(f"{self.BASE_URL}/users/2", json=payload)
-    #     self.assertEqual(response.status_code, 200)
-    #     data = response.json()
-    #     self.assertEqual(data['job'], "zion resident")
+    def test_update_user(self):
+        """Test PUT request to update a user"""
+        payload = {
+            "name": "morpheus",
+            "job": "zion resident"
+        }
+        response = requests.put(f"{self.BASE_URL}/api/users/2", json=payload)
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertEqual(data['job'], "zion resident")
 
-    # def test_delete_user(self):
-    #     """Test DELETE request to delete a user"""
-    #     response = requests.delete(f"{self.BASE_URL}/users/2")
-    #     self.assertEqual(response.status_code, 204)
+    def test_delete_user(self):
+        """Test DELETE request to delete a user"""
+        response = requests.delete(f"{self.BASE_URL}/api/users/2")
+        self.assertEqual(response.status_code, 204)
 
 if __name__ == "__main__":
     unittest.main()
