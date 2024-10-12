@@ -14,4 +14,5 @@ To run the program, in your terminal run the command:
 python -m pytest .\test-api.py
 ```
 This will execute the test scripts of GET, POST, PUT and DELETE. A successful result looks like the following:
+![alt text](https://github.com/MatthewSharpOTU/API-Automation/blob/main/images/Screenshot%202024-10-12%20132702.png)
 
